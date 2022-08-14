@@ -1,1 +1,1 @@
-export type TVeiculo = 'Carro' | 'Moto';
+export type TipoVeiculo = 'Carro' | 'Moto';

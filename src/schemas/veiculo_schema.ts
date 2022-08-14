@@ -2,7 +2,7 @@ import { Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
 import { Document } from 'mongoose';
-import { TVeiculo } from 'src/interface';
+import { TipoVeiculo } from 'src/interface';
 
 export type VeiculoDocument = Veiculo & Document;
 
@@ -26,7 +26,7 @@ export class Veiculo {
 
   @IsString()
   @ApiProperty()
-  tipo: TVeiculo;
+  tipo: TipoVeiculo;
 }
 
 export const VeiculoSchema = SchemaFactory.createForClass(Veiculo);

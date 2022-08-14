@@ -3,6 +3,35 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
+@Schema()
+export class Endereco {
+  @IsString()
+  @ApiProperty()
+  rua: string;
+
+  @IsString()
+  @ApiProperty()
+  numero: string;
+
+  @IsString()
+  @ApiProperty()
+  bairro: string;
+
+  @IsString()
+  @ApiProperty()
+  cep: string;
+
+  @IsString()
+  @ApiProperty()
+  cidade: string;
+
+  @IsString()
+  @ApiProperty()
+  estado: string;
+}
+
+export const EnderecoSchema = SchemaFactory.createForClass(Endereco);
+
 export type EstabelecimentoDocument = Estabelecimento & Document;
 
 @Schema()
@@ -15,16 +44,19 @@ export class Estabelecimento {
   @ApiProperty()
   cnpj: string;
 
-  @IsString()
   @ApiProperty()
-  endereco: {
-    rua: string;
-    numero: string;
-    bairro: string;
-    cep: string;
-    cidade: string;
-    estado: string;
-  };
+  endereco: Endereco;
+
+  // @IsString()
+  // @ApiProperty()
+  // endereco: {
+  //   rua: string;
+  //   numero: string;
+  //   bairro: string;
+  //   cep: string;
+  //   cidade: string;
+  //   estado: string;
+  // };
 
   @IsString()
   @ApiProperty()
