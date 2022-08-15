@@ -1,32 +1,25 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose';
-import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString } from 'class-validator';
 import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+export type EnderecoDocument = Endereco & Document;
 @Schema()
 export class Endereco {
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   rua: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   numero: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   bairro: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   cep: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   cidade: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   estado: string;
 }
 
@@ -36,15 +29,13 @@ export type EstabelecimentoDocument = Estabelecimento & Document;
 
 @Schema()
 export class Estabelecimento {
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   name: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   cnpj: string;
 
-  @ApiProperty()
+  @Prop({ required: true })
   endereco: Endereco;
 
   // @IsString()
@@ -58,16 +49,13 @@ export class Estabelecimento {
   //   estado: string;
   // };
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   telefone: string;
 
-  @IsNumber()
-  @ApiProperty()
+  @Prop({ required: true })
   moto_vagas: number;
 
-  @IsNumber()
-  @ApiProperty()
+  @Prop({ required: true })
   carro_vagas: number;
 }
 

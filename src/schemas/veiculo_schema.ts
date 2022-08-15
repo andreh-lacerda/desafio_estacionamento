@@ -1,31 +1,24 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose';
-import { ApiProperty } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
 import { Document } from 'mongoose';
-import { TipoVeiculo } from 'src/interface';
+import { TipoVeiculo } from '../interface';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type VeiculoDocument = Veiculo & Document;
 
 @Schema()
 export class Veiculo {
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   marca: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   modelo: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   cor: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   placa: string;
 
-  @IsString()
-  @ApiProperty()
+  @Prop({ required: true })
   tipo: TipoVeiculo;
 }
 

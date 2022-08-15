@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
 import { TipoVeiculo } from '../interface';
 
-export class CreateVeiculoDTO {
+export class UpdateVeiculoDTO {
   @IsString()
   @ApiProperty({ example: 'Volkswagem' })
   readonly marca: string;

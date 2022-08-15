@@ -1,5 +1,3 @@
-import { CreateEstabelecimentoDTO } from './../dto/create_estabelecimento.dto';
-import { UpdateEstabelecimentoDTO } from './../dto/update_estabeleciento.dto';
 import { ApiTags } from '@nestjs/swagger';
 import {
   Body,
@@ -10,8 +8,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Estabelecimento } from 'src/schemas/estabelecimento_schema';
+import { Estabelecimento } from '../schemas/estabelecimento_schema';
 import { EstabelecimentoService } from '../services/estabelecimento_service';
+import { UpdateEstabelecimentoDTO } from '../dto/update_estabelecimento.dto';
+import { CreateEstabelecimentoDTO } from './../dto/create_estabelecimento.dto';
 
 @ApiTags('Estabelecimento')
 @Controller('estabelecimento')

@@ -1,4 +1,3 @@
-import { UpdateEstabelecimentoDTO } from './../dto/update_estabeleciento.dto';
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
@@ -7,7 +6,8 @@ import {
   Estabelecimento,
   EstabelecimentoDocument,
 } from './../schemas/estabelecimento_schema';
-import { CreateEstabelecimentoDTO } from 'src/dto/create_estabelecimento.dto';
+import { UpdateEstabelecimentoDTO } from '../dto/update_estabelecimento.dto';
+import { CreateEstabelecimentoDTO } from '../dto/create_estabelecimento.dto';
 
 @Injectable()
 export class EstabelecimentoService {

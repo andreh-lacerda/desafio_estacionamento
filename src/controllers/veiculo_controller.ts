@@ -1,8 +1,17 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateVeiculoDTO } from './../dto/create_veiculo.dto';
-import { Veiculo } from 'src/schemas/veiculo_schema';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
+import { Veiculo } from '../schemas/veiculo_schema';
 import { VeiculoService } from '../services/veiculo_service';
+import { UpdateVeiculoDTO } from './../dto/update_veiculo.dto';
+import { CreateVeiculoDTO } from './../dto/create_veiculo.dto';
 
 @ApiTags('Veiculo')
 @Controller('veiculo')
@@ -27,5 +36,13 @@ export class VeiculoController {
   @Delete(':id')
   async deleteVeiculo(@Param('id') id: string) {
     return this.veiculoService.deleteVeiculo(id);
+  }
+
+  @Put(':id')
+  async updateVeiculo(
+    @Param('id') id: string,
+    @Body() updateVeiculoDTO: UpdateVeiculoDTO,
+  ) {
+    return this.veiculoService.updateVeiculo(id, updateVeiculoDTO);
   }
 }

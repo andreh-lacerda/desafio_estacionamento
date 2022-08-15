@@ -3,15 +3,7 @@ import { IsNumber, IsObject, IsString } from 'class-validator';
 import { IEndereco } from '../interface';
 import { enderecoMock } from '../mocks';
 
-export class CreateEstabelecimentoDTO {
-  @IsString()
-  @ApiProperty({ type: String, example: 'Estacionamento do João' })
-  readonly name: string;
-
-  @IsString()
-  @ApiProperty({ type: String, example: '01.427.046/0001-46' })
-  readonly cnpj: string;
-
+export class UpdateEstabelecimentoDTO {
   @IsObject()
   @ApiProperty({ example: enderecoMock })
   readonly endereco: IEndereco;
